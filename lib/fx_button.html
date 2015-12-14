@@ -1,0 +1,116 @@
+<dom-module id="fx-button">
+  <template>
+    <style>
+      :host {
+        display: inline-block;
+        margin: 5px;
+      }
+
+      #mainButton {
+        display:block;
+        position:relative;
+        width:100%;
+        padding: 0px;
+        font-family: var(--fx-button-font-family, Roboto);
+        font-size: var(--fx-button-font-size, 11pt);
+        background: var(--fx-button-background, #009fb2);
+        border-width: var(--fx-button-border-width, 1px);
+        border-style: var(--fx-button-border-style, solid);
+        border-color: var(--fx-button-border-color, #009fb2);
+        border-radius: var(--fx-button-border-radius, 3px);
+        color: var(--fx-button-font-color, white);
+        cursor: var(--fx-button-cursor, pointer);
+      }
+
+      #mainButton:focus {
+        outline:0;
+      }
+
+      #mainButton.disabled {
+        background-color: var(--fx-colors-theme-disabled);
+        border-color: var(--fx-colors-theme-disabled);
+        cursor:default;
+        pointer-events: none;
+      }
+
+      #mainButton.primary {
+        background-color: var(--fx-colors-theme-primary);
+        border-color: var(--fx-colors-theme-primary);
+      }
+
+      #mainButton.secondary {
+        background-color: var(--fx-colors-theme-secondary);
+        border-color: var(--fx-colors-theme-secondary);
+      }
+
+      #mainButton.tertiary {
+        background-color: var(--fx-colors-theme-tertiary);
+        border-color: var(--fx-colors-theme-tertiary);
+      }
+
+      #mainButton.success {
+        background-color: var(--fx-colors-theme-success);
+        border-color: var(--fx-colors-theme-success);
+      }
+
+      #mainButton.warn {
+        background-color: var(--fx-colors-theme-warn);
+        border-color: var(--fx-colors-theme-warn);
+      }
+
+      #mainButton.error {
+        background-color: var(--fx-colors-theme-error);
+        border-color: var(--fx-colors-theme-error);
+      }
+
+      #btnContent {
+        display:block;
+        padding:10px;
+      }
+
+      #btnContent.pressed {
+        padding-top:11px;
+        padding-bottom:9px;
+      }
+
+      #gradient {
+        display:block;
+        position:absolute;
+        top:0;
+        right:0;
+        bottom:0;
+        left:0;
+        opacity: var(--fx-button-gradient-opacity, 0.7);
+
+
+        background: -moz-linear-gradient(top, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0) 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.65)), color-stop(100%,rgba(255,255,255,0)));
+
+        background: var(--fx-button-gradient-moz, -moz-linear-gradient(top, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0) 100%));  /*FF3.6+*/
+        background: var(--fx-button-gradient-webkit, -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.65)), color-stop(100%,rgba(255,255,255,0))));  /*Chrome,Safari4+*/
+        /*background: var(--fx-button-gradient-webkit-linear, -webkit-linear-gradient(top, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0) 100%));*/  /*Chrome10+,Safari5.1+*/
+        /*background: var(--fx-button-gradient-o, -o-linear-gradient(top, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0) 100%));*/ /* Opera 11.10+*/
+        /*background: var(--fx-button-gradient-ms, -ms-linear-gradient(top, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0) 100%));*/  /*IE10+*/
+        /*background: var(--fx-button-gradient, linear-gradient(to bottom, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0) 100%));*/  /*W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+      }
+
+      #gradient.pressed {
+        opacity: var(--fx-button-gradient-pressed-opacity, 0.4);
+        /* inset shadow */
+        -webkit-box-shadow: var(--fx-button--pressed-shadow, inset 0px 2px 6px 0px rgba(50, 50, 50, 0.75));
+        -moz-box-shadow:    var(--fx-button--pressed-shadow, inset 0px 2px 6px 0px rgba(50, 50, 50, 0.75));
+        box-shadow:         var(--fx-button--pressed-shadow, inset 0px 2px 6px 0px rgba(50, 50, 50, 0.75));
+      }
+
+    </style>
+
+    <button id="mainButton" on-mouseup="mouseUpHandler" on-mousedown="mouseDownHandler" class$="{{typeClass(type, disabled)}}">
+      <div id="btnContent" class$="{{pressedClass(pressed)}}">
+        {{label}}
+      </div>
+      <div id="gradient" class$="{{pressedClass(pressed)}}">
+      </div>
+    </button>
+  </template>
+</dom-module>
