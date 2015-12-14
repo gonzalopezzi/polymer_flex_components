@@ -11,7 +11,6 @@ class FxButton extends FxBase {
 
 
   @property String label;
-  @Property(notify:true, observer: 'labelChanged', reflectToAttribute: true) String label2;
   @property bool pressed = false;
   @property String type = 'primary';
   @property bool disabled = false;
