@@ -1,0 +1,140 @@
+<dom-module id="fx-dropdown-list">
+  <template>
+    <style>
+      :host {
+        display: inline-block;
+        position: relative;
+        min-width:100px;
+        vertical-align:top;
+      }
+
+      #placeholder {
+        display:block;
+        outline: 0;
+        width:100%;
+
+        font-size: var(--fx-dropdown-list-font-family, Roboto);
+        text-align: var(--fx-dropdown-list-place-holder-text-align, left);
+        color: var(--fx-dropdown-list-place-holder-font-color, #000);
+        box-sizing: border-box;
+
+        /*TODO: Fix this: background: var(--fx-dropdown-list-place-holder-background, #fff url("packages/polymer_flex_components/icon/arrow-down.png") no-repeat right center);*/
+        background: #fff url("packages/polymer_flex_components/icon/arrow-down.png") no-repeat right center;
+
+        border: var(--fx-dropdown-list-place-holder-border, 1px solid #CCC);
+        border-radius: var(--fx-dropdown-list-place-holder-border-radius, 3px);
+        height: var(--fx-dropdown-list-place-holder-height, 30px);
+        padding: var(--fx-dropdown-list-place-holder-padding, 4px 24px 4px 4px);
+        transition: var(--fx-dropdown-list-place-holder-transition, all 0s ease-in-out 0.2s);
+
+        -webkit-box-shadow: var(--fx-dropdown-list-place-holder-shadow, 0);
+        -moz-box-shadow:    var(--fx-dropdown-list-place-holder-shadow, 0);
+        box-shadow:         var(--fx-dropdown-list-place-holder-shadow, 0);
+      }
+
+      #placeholder:hover {
+        background-color: var(--fx-dropdown-list-place-holder-hover-color, #ddd);
+      }
+
+      #placeholder.focused {
+        -webkit-box-shadow: var(--fx-dropdown-list-place-holder-focus-shadow, 0px 0px 4px 0px rgba(86, 182, 255, 0.75));
+        -moz-box-shadow:    var(--fx-dropdown-list-place-holder-focus-shadow, 0px 0px 4px 0px rgba(86, 182, 255, 0.75));
+        box-shadow:         var(--fx-dropdown-list-place-holder-focus-shadow, 0px 0px 4px 0px rgba(86, 182, 255, 0.75));
+      }
+
+      #fxlst {
+        visibility: hidden;
+        position: absolute;
+        z-index: 990;
+        top: var(--fx-dropdown-list-list-top, 16px);
+        width: 100%;
+        height: var(--fx-dropdown-list-list-height, 120px);
+        margin-top: var(--fx-dropdown-list-list-margin-top, 2px);
+        transition: all 0.3s ease-in-out;
+        opacity: 0;
+      }
+
+      #fxlst.deployed {
+        visibility: visible;
+        opacity: 1;
+        top: var(--fx-dropdown-list-list-deployed-top, 32px);
+      }
+
+/*
+
+      #placeholder {
+        display:block;
+        outline: 0;
+        width:100%;
+        font-size: Roboto;
+        text-align: left;
+        color: var(--fx-dropdown-list-place-holder-font-color, #000);
+        box-sizing: border-box;
+        background: #fff url("packages/polymer_flex_components/icon/arrow-down.png") no-repeat right center;
+        border: 1px solid #CCC;
+        border-radius: 3px;
+        height: 30px;
+        padding: 4px 24px 4px 4px;
+        transition: all 0s ease-in-out 0.2s;
+
+        -webkit-box-shadow: 0;
+        -moz-box-shadow:    0;
+        box-shadow:         0;
+      }
+
+      #placeholder:hover {
+        background-color: #ddd;
+      }
+
+      #placeholder.focused {
+        -webkit-box-shadow: 0px 0px 4px 0px rgba(86, 182, 255, 0.75);
+        -moz-box-shadow:    0px 0px 4px 0px rgba(86, 182, 255, 0.75);
+        box-shadow:         0px 0px 4px 0px rgba(86, 182, 255, 0.75);
+      }
+
+      #fxlst {
+        visibility: hidden;
+        position: absolute;
+        z-index: 990;
+        top: 16px;
+        width: 100%;
+        height: 120px;
+        margin-top: 2px;
+        transition: all 0.3s ease-in-out;
+        opacity: 0;
+      }
+
+      #fxlst.deployed {
+        visibility: visible;
+        opacity: 1;
+        top: 32px;
+      }
+*/
+
+    </style>
+
+    <button id="placeholder" on-click="toggleDeployed"
+            on-focus="focusHandler" on-blur="blurHandler"
+            class$="{{focusedClass(focused)}}">
+      <template is="dom-if" if="{{unselected}}">
+        {{prompt}}
+      </template>
+      <template is="dom-if" if="{{selected}}">
+        <template is="dom-if" if="{{isNullItemRenderer}}">
+          Selected: {{render(selectedItem)}}
+        </template>
+        <template is="dom-if" if="{{isNotNullItemRenderer}}">
+          <fx-item-renderer tag="{{itemRenderer}}" data="{{selectedItem}}"></fx-item-renderer>
+        </templatediv>
+      </template>
+    </button>
+    <fx-list id="fxlst"
+             focus-enabled="false"
+             data-provider="[[dataProvider]]"
+             selected-item="[[selectedItem]]"
+             item-renderer="[[itemRenderer]]"
+             label-field="[[labelField]]"
+             list-height="[[listHeight]]"
+             on-selection-change="onSelectionChangeHandler" ></fx-list>
+  </template>
+</dom-module>

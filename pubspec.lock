@@ -4,15 +4,23 @@ packages:
   analyzer:
     description: analyzer
     source: hosted
-    version: "0.26.1+14"
+    version: "0.27.1"
+  animation:
+    description: animation
+    source: hosted
+    version: "0.5.24"
   args:
     description: args
     source: hosted
-    version: "0.13.2"
+    version: "0.13.3+2"
   async:
     description: async
     source: hosted
-    version: "1.4.0"
+    version: "1.8.0"
+  autonotify_observe:
+    description: autonotify_observe
+    source: hosted
+    version: "1.0.0+7"
   barback:
     description: barback
     source: hosted
@@ -21,6 +29,10 @@ packages:
     description: browser
     source: hosted
     version: "0.10.0+2"
+  browser_detect:
+    description: browser_detect
+    source: hosted
+    version: "1.0.3"
   charcode:
     description: charcode
     source: hosted
@@ -32,15 +44,11 @@ packages:
   code_transformers:
     description: code_transformers
     source: hosted
-    version: "0.2.11"
+    version: "0.3.1"
   collection:
     description: collection
     source: hosted
-    version: "1.2.0"
-  convert:
-    description: convert
-    source: hosted
-    version: "1.0.1"
+    version: "1.4.0"
   crypto:
     description: crypto
     source: hosted
@@ -52,15 +60,15 @@ packages:
   dart_style:
     description: dart_style
     source: hosted
-    version: "0.2.1"
+    version: "0.2.4"
   glob:
     description: glob
     source: hosted
-    version: "1.0.5"
+    version: "1.1.0"
   html:
     description: html
     source: hosted
-    version: "0.12.2"
+    version: "0.12.2+1"
   http_multi_server:
     description: http_multi_server
     source: hosted
@@ -68,11 +76,15 @@ packages:
   http_parser:
     description: http_parser
     source: hosted
-    version: "1.1.0"
+    version: "2.1.0"
   initialize:
     description: initialize
     source: hosted
-    version: "0.6.1+2"
+    version: "0.6.2+1"
+  intl:
+    description: intl
+    source: hosted
+    version: "0.12.6"
   logging:
     description: logging
     source: hosted
@@ -85,6 +97,13 @@ packages:
     description: mime
     source: hosted
     version: "0.9.3"
+  observe:
+    description:
+      ref: reflectable
+      resolved-ref: add4c1ba6339163b80cbbde3dc3a1918adb352bc
+      url: "https://github.com/dam0vm3nt/observe.git"
+    source: git
+    version: "0.13.1+2"
   package_config:
     description: package_config
     source: hosted
@@ -93,24 +112,30 @@ packages:
     description: path
     source: hosted
     version: "1.3.9"
+  petitparser:
+    description: petitparser
+    source: hosted
+    version: "1.5.1"
   plugin:
     description: plugin
     source: hosted
     version: "0.1.0"
   polymer:
-    description:
-      path: "C:\\Users\\EPastor.CONENTO\\Documents\\GitHub\\polymer-dart"
-      relative: false
-    source: path
-    version: "1.0.0-rc.9"
+    description: polymer
+    source: hosted
+    version: "1.0.0-rc.15"
+  polymer_autonotify:
+    description: polymer_autonotify
+    source: hosted
+    version: "1.0.0"
   polymer_elements:
     description: polymer_elements
     source: hosted
-    version: "1.0.0-rc.5"
+    version: "1.0.0-rc.8"
   polymer_interop:
     description: polymer_interop
     source: hosted
-    version: "1.0.0-rc.5"
+    version: "1.0.0-rc.8"
   pool:
     description: pool
     source: hosted
@@ -119,22 +144,26 @@ packages:
     description: pub_semver
     source: hosted
     version: "1.2.3"
+  quiver:
+    description: quiver
+    source: hosted
+    version: "0.21.4"
   reflectable:
     description: reflectable
     source: hosted
-    version: "0.4.0"
+    version: "0.5.1"
   shelf:
     description: shelf
     source: hosted
-    version: "0.6.4+2"
+    version: "0.6.5"
   shelf_static:
     description: shelf_static
     source: hosted
-    version: "0.2.3+1"
+    version: "0.2.3+3"
   shelf_web_socket:
     description: shelf_web_socket
     source: hosted
-    version: "0.0.1+4"
+    version: "0.1.0"
   source_map_stack_trace:
     description: source_map_stack_trace
     source: hosted
@@ -150,23 +179,19 @@ packages:
   stack_trace:
     description: stack_trace
     source: hosted
-    version: "1.5.0"
+    version: "1.6.1"
+  stream_channel:
+    description: stream_channel
+    source: hosted
+    version: "1.1.1"
   string_scanner:
     description: string_scanner
     source: hosted
-    version: "0.1.4"
+    version: "0.1.4+1"
   test:
     description: test
     source: hosted
-    version: "0.12.6+1"
-  typed_data:
-    description: typed_data
-    source: hosted
-    version: "1.1.1"
-  unittest:
-    description: unittest
-    source: hosted
-    version: "0.11.6+1"
+    version: "0.12.10"
   utf:
     description: utf
     source: hosted
@@ -178,7 +203,7 @@ packages:
   web_components:
     description: web_components
     source: hosted
-    version: "0.12.0+4"
+    version: "0.12.2+2"
   when:
     description: when
     source: hosted
@@ -190,4 +215,5 @@ packages:
   yaml:
     description: yaml
     source: hosted
-    version: "2.1.7"
+    version: "2.1.8"
+sdk: ">=1.14.0 <1.16.0"

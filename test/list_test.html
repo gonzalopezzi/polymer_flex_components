@@ -1,0 +1,18 @@
+<dom-module id="list-test">
+  <template>
+    <style>
+    </style>
+    <content>
+      <fx-list id="single-selection"
+               data-provider="{{people}}"
+               label-field="name"
+               selected-index="[[selectedIndex]]">
+      </fx-list>
+      <fx-list id="multiple-selection"
+               data-provider="{{people}}"
+               label-field="name"
+               allow-multiple-selection="true">
+      </fx-list>
+    </content>
+  </template>
+</dom-module>

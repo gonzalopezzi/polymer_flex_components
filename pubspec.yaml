@@ -8,18 +8,25 @@ environment:
   sdk: '>=1.9.0 <2.0.0'
 
 dependencies:
-  browser: ^0.10.0
-  polymer_elements: ^1.0.0-rc.5
-  polymer:
-    path: C:\Users\EPastor.CONENTO\Documents\GitHub\polymer-dart
-  reflectable: 0.4.0
-  web_components: ^0.12.0
-
+  browser: any
+  browser_detect: any
+  animation: any
+  intl: any
+  quiver: any
+#  barback: any
+  autonotify_observe: any
+  polymer: ">=1.0.0-rc.15"
+dev_dependencies:
+  test: "^0.12.5+1"
+  polymer_elements: ">=0.3.0"
+  html: any
 transformers:
-- web_components:
-    entry_points: web/index.html
-- reflectable:
-    entry_points: web/index.bootstrap.initialize.dart
+- autonotify_observe:
+   entry_points:
+    - web/index.html
+    - test/all_test.html
+- test/pub_serve:
+   $include: test/**_test{.*,}.dart
 - $dart2js:
     $include: '**/*.bootstrap.initialize.dart'
     minify: false

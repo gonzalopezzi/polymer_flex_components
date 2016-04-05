@@ -1,0 +1,25 @@
+<dom-module id="persona-item-renderer">
+    <template>
+        <style>
+            :host {
+                display: inline-block;
+                margin: 5px;
+            }
+
+            #renderer-div {
+                float:left;
+            }
+
+            #renderer-div > .label {
+                display:inline-block;
+            }
+
+        </style>
+        <div id="renderer-div">
+            <img src="user-32.png">
+            <div class="label">
+                {{data.apellidos}}, {{data.nombre}}
+            </div>
+        </div>
+    </template>
+</dom-module>

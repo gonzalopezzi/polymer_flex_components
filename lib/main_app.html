@@ -13,14 +13,56 @@
 
   <template>
 
-    <fx-button label="Click Me Too!" disabled></fx-button>
-    <fx-button label="Click Me Too!" class="button2"></fx-button>
-    <fx-button label="Click Me Too!" type="primary"></fx-button>
-    <fx-button label="Click Me Too!" type="secondary"></fx-button>
-    <fx-button label="Click Me Too!" type="tertiary"></fx-button>
-    <fx-button label="Click Me Too!" type="success"></fx-button>
-    <fx-button label="Click Me Too!" type="warn"></fx-button>
-    <fx-button label="Click Me Too!" type="error"></fx-button>
+    <fx-slider id="slider1" value="{{sliderValue}}"
+               min-value="200" max-value="1000" step-size="1" animate-step-size="false"
+               double-thumb="true"></fx-slider>
+    <fx-date-chooser selected-date="{{selectedDate}}"
+                     first-day-of-week="1"
+                     min-date="{{minDate}}"
+                     max-date="{{maxDate}}"></fx-date-chooser>
+    <fx-date-field selected-date="{{selectedDate}}"></fx-date-field>
+    <div>
+      {{selectedDate}}
+    </div>
+    <div>
+      <fx-button label="Click Me Too!" disabled></fx-button>
+      <fx-button id="btn2" label="Click Me Too!" class="button2" on-click="buttonClicked"></fx-button>
+      <fx-button label="Click Me Too!" type="primary"></fx-button>
+      <fx-button label="Click Me Too!" type="secondary"></fx-button>
+      <fx-button label="Click Me Too!" type="tertiary"></fx-button>
+      <fx-button label="Click Me Too!" type="success"></fx-button>
+      <fx-button label="Click Me Too!" type="warn"></fx-button>
+      <fx-button label="Click Me Too!" type="error"></fx-button>
+    </div>
+    <div>
+      <!--<fx-list data-provider="{{listDataProvider}}" selected-index="{{selectedIndex}}" label-field="nombre"></fx-list>
+      <fx-list data-provider="{{listDataProvider}}" selected-index="{{selectedIndex}}" label-field="apellidos" item-renderer="persona-item-renderer"></fx-list>-->
+      <fx-panel style="width:50%;padding-top:10px">
+        <fx-panel-title>Título del panel</fx-panel-title>
+        <fx-panel-content>
+          Y tengo contenido <b>html</b> en mi interior:
+          <ul>
+            <li>Spain</li>
+            <li>France</li>
+            <li>Portugal</li>
+            <li>Italy</li>
+          </ul>
+          <!--<fx-list data-provider="{{listDataProvider}}" selected-index="{{selectedIndex}}" label-field="nombre"></fx-list>-->
+          <fx-dropdown-list
+                  data-provider="{{listDataProvider}}"
+                  selected-index="{{selectedIndex}}"
+                  selected-item="{{selectedItem}}"
+                  label-field="nombre"
+                  prompt="Seleccione"
+                  style="width:100%">
+          </fx-dropdown-list>
+          <div>
+            {{selectedItem.nombre}}
+          </div>
+        </fx-panel-content>
+        <fx-panel-footer>Pie del panel</fx-panel-footer>
+      </fx-panel>
+    </div>
 
   </template>
 </dom-module>

@@ -1,0 +1,39 @@
+<dom-module id="fx-date-field">
+  <template>
+    <style>
+      :host {
+        display: inline-block;
+        position:relative;
+      }
+
+      #date-field-button  {
+        box-sizing: border-box;
+        height:36px;
+      }
+
+      #date-field-button /deep/ #btnContent {
+        padding:8px;
+      }
+
+      #date-field-text {
+        box-sizing: border-box;
+        height:36px;
+        width:80px;
+        color: #888;
+        text-align:center;
+      }
+
+      #date-field-date-chooser {
+        position:absolute;
+        z-index: 500;
+        visibility:hidden;
+        opacity:0;
+        transition: all 0.3s ease-in-out;
+      }
+
+    </style>
+    <input id="date-field-text" type="text" readonly="true" value="{{format(selectedDate)}}"><fx-button id="date-field-button" label="..." on-click="toggleDateChooser"></fx-button>
+    <fx-date-chooser id="date-field-date-chooser" selected-date="{{selectedDate}}"></fx-date-chooser>
+
+  </template>
+</dom-module>
