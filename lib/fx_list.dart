@@ -125,10 +125,12 @@ class FxList extends FxBase with AutonotifyBehavior,Observable {
 
   void _wrapDataProvider () {
     List<WrappedItem> wrapped = new List<WrappedItem> ();
-    for (int i = 0; i < dataProvider.length; i++) {
-      dynamic item = dataProvider[i];
-      wrapped.add(new WrappedItem (item)..selected = false
-        ..index = i);
+    if(dataProvider != null) {
+      for (int i = 0; i < dataProvider.length; i++) {
+        dynamic item = dataProvider[i];
+        wrapped.add(new WrappedItem (item)..selected = false
+          ..index = i);
+      }
     }
     _setSelectionsInWrappedDataProvider(wrapped);
     wrappedDataProvider.clear();
@@ -235,7 +237,7 @@ class FxList extends FxBase with AutonotifyBehavior,Observable {
         focusedIndex = 0;
         _updateListScrollToFocusedItem();
       }
-      else if (focusedIndex < dataProvider.length -1) {
+      else if (dataProvider != null && focusedIndex < dataProvider.length -1) {
         focusedIndex ++;
         _updateListScrollToFocusedItem();
       }
@@ -322,17 +324,19 @@ class FxList extends FxBase with AutonotifyBehavior,Observable {
         /*set ("selectedIndex", -1);*/
         selectedIndex = -1;
       }
-      for (int i = 0; i < dataProvider.length; i++) {
-        dynamic item = dataProvider[i];
-        if (allowMultipleSelection) {
-          if (selectedItems != null && selectedItems.contains(item)) {
-            selectedIndices.add(i);
+      if(dataProvider != null) {
+        for (int i = 0; i < dataProvider.length; i++) {
+          dynamic item = dataProvider[i];
+          if (allowMultipleSelection) {
+            if (selectedItems != null && selectedItems.contains(item)) {
+              selectedIndices.add(i);
+            }
           }
-        }
-        else {
-          if (item == selectedItem) {
-            /*set ("selectedIndex", i);*/
-            selectedIndex = i;
+          else {
+            if (item == selectedItem) {
+              /*set ("selectedIndex", i);*/
+              selectedIndex = i;
+            }
           }
         }
       }
